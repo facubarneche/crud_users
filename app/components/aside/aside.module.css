@@ -1,0 +1,16 @@
+.aside {
+  background: #2D3E50;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  height:100vh;
+  width: 6.5rem;
+  padding: 1.5rem;
+  gap: 0.9rem;
+}
+
+.aside-setting i{
+  font-size: 2.5rem;
+  color: #FFFFFF;
+}
+
