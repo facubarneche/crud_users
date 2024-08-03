@@ -1,0 +1,14 @@
+.searcher-container {
+  display: flex;
+  align-items: center;
+  gap: 0.4375em;
+  padding: 0.625em 2.5em;
+}
+
+.searcher-container > * {
+  flex: 6;
+}
+
+.searcher-container .searcher-button {
+  flex: 1;
+}

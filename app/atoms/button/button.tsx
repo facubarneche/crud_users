@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
-
 import { Button } from 'primereact/button';
+import styles from './button.module.css';
 
 interface CreateButtonProps {
   label: string;
@@ -19,5 +19,5 @@ export default function CreateButton({ label, icon }: CreateButtonProps) {
         }, 1000);
     };
 
-    return <Button className='p-3 border-round-xl gap-3' label={label} icon={icon} loading={loading} onClick={load} />
+    return <Button className='border-round-xl gap-3' label={label} icon={icon} loading={loading} onClick={load} />
 }
