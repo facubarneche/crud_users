@@ -4,7 +4,7 @@ import { useState } from 'react';
 import styles from './user.module.css';
 import { Button } from 'primereact/button';
 
-export default function index() {
+export default function UserPage() {
   const [loading, setLoading] = useState<boolean>(false);
 
     const load = () => {
