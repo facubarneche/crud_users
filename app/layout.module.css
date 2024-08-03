@@ -1,3 +1,7 @@
-.content-wrapper{
+.wrapper-content {
   display: flex;
+}
+
+.main-content {
+  width: 100%;
 }

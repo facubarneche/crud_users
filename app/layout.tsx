@@ -26,9 +26,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
       <PrimeReactProvider>
         <Navbar />
-        <div className={styles['content-wrapper']}>
+        <div className={styles['wrapper-content']}>
           <Aside />
-          <main>{children}</main>
+          <main className={styles['main-content']}>{children}</main>
         </div>
       </PrimeReactProvider>
       </body>
