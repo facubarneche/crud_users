@@ -36,7 +36,7 @@ export default function Table() {
         <div className="card">
             <DataTable value={products} removableSort tableStyle={{ minWidth: '50rem' }}>
                 <Column field="id" header="id" sortable style={{ width: '25%' }}></Column>
-                <Column field="user" header="Usuario" sortable style={{ width: '25%' }}></Column>
+                <Column field="user" header="Usuario" sortable style={{ width: '25%'} } bodyStyle={ {color: '#0763E7', textDecoration: 'underline'} }></Column>
                 <Column field="state" header="Estado" sortable style={{ width: '25%' }}></Column>
                 <Column field="sector" header="Sector" sortable style={{ width: '25%' }}></Column>
             </DataTable>

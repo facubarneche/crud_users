@@ -10,4 +10,5 @@
 
 .searcher-container .searcher-button {
   flex: 1;
+  margin-top: 1rem;
 }

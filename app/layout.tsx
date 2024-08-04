@@ -11,7 +11,7 @@ import "./globals.css";
 import styles from "./layout.module.css"
 
 // Organisms
-import Navbar from "./organisms/navbar/navbar";
+import Header from "./organisms/header/header";
 import Aside from "./organisms/aside/aside";
 
 //TODO: Agregar meta data y pasar a utils
@@ -25,7 +25,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <body>
       <PrimeReactProvider>
-        <Navbar />
+        <Header title="" />
         <div className={styles['wrapper-content']}>
           <Aside />
           <main className={styles['main-content']}>{children}</main>

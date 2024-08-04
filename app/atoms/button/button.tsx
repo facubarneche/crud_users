@@ -1,23 +1,16 @@
-"use client";
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Button } from 'primereact/button';
 import styles from './button.module.css';
 
 interface CreateButtonProps {
-  label: string;
-  icon: string;
+    label: string;
+    icon: string;
+    outlined: boolean;
+    onClick: () => void;
 }
 
-export default function CreateButton({ label, icon }: CreateButtonProps) {
-  const [loading, setLoading] = useState<boolean>(false);
+export default function CreateButton({ label, icon, outlined, onClick }: CreateButtonProps) {
+    const load = () => onClick();
 
-    const load = () => {
-        setLoading(true);
-
-        setTimeout(() => {
-            setLoading(false);
-        }, 1000);
-    };
-
-    return <Button className='border-round-xl gap-3' label={label} icon={icon} loading={loading} onClick={load} />
+    return <Button className={styles['create-button']} label={label} icon={icon} onClick={load} outlined={outlined}/>
 }

@@ -1,18 +1,20 @@
-import CreateButton from "@/app/atoms/button/button";
+import Image from "next/image"
 import styles from "./header.module.css";
 
 interface HeaderProps {
-  title: string;
-  buttonLabel: string;
-  icon: string;
+  title: string | null;
 }
 
-export default function Header({ title, buttonLabel, icon }: HeaderProps) {
+export default function Header({ title }: HeaderProps) {
   return (
-    <header className={styles['header']}>
-      <h1 className={styles['header-title']}>{ title }</h1>
-      <CreateButton label={buttonLabel} icon={icon} />
-    </header>
+    <nav className={styles['header']}>
+      {
+        title ? <h1 className={styles['header-title']}>{title}</h1> : <Image src="/logo.png" width={44} height={43} alt="Logotipo" />
+      }
+      <button className={styles['header-setting']}>
+        <i className="pi pi-cog"></i>
+      </button>
+    </nav>
   )
 }
 
