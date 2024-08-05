@@ -5,8 +5,8 @@ import React, { useState } from "react";
 import { Dropdown, DropdownChangeEvent } from 'primereact/dropdown';
 import styles from "./dropdown.module.css";
 
-export default function DropdownInput({ data, placeholder, label }: any) {
-  const [selectedData, setSelectedData] = useState<any | null>(null);
+export default function DropdownInput({ data, userData, placeholder, label }: any) {
+  const [selectedData, setSelectedData] = useState<any>(data.find((opt: string) => opt === userData));
 
   return (
     <div>

@@ -22,7 +22,7 @@ export default function MainHeader({ title, buttonLabel, icon }: MainHeaderProps
     <header className={styles['main-header']}>
       <h1 className={styles['main-header-title']}>{title}</h1>
       <CreateButton label={buttonLabel} icon={icon} outlined={false} onClick={showModal} />
-      <ActionModal visible={modalVisible} onClose={hideModal} />
+      <ActionModal visible={modalVisible} user="" onClose={hideModal} />
     </header>
   )
 }

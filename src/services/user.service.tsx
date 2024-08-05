@@ -3,10 +3,9 @@ import { API_URL } from '../config'
 import { IUser, User } from '../domains/user'
 
 class UserService {
-  getAll = async () => {
-    return (await axios.get(`${API_URL}`)).data;
-    // return usersJson.data.map((user: IUser) => User.fromJson(user))
-  }
+  getAll = async () => (await axios.get(`${API_URL}?sector=3000&_limit=10&_page=1`)).data;
+
+  getById = async (id: number) => (await axios.get(`${API_URL}/${id}?sector=3000&_limit=10&_page=1`)).data;
 
   // delete = async (id) => {
   //   try {

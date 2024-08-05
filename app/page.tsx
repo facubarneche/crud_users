@@ -1,5 +1,21 @@
-import UserPage from './pages/user/page';
+import { userService } from "@/src/services/user.service";
 
-export default function Router() {
-    return <UserPage />
+import style from './page.module.css';
+import MainHeader from "./organisms/main-header/main-header";
+import Searcher from "./molecules/searchers/searcher";
+import Table from "./atoms/table/table";
+import BasicPaginator from "./atoms/paginator/paginator";
+
+export default async function UserPage() {
+    //TODO: Ver el any
+    const users: any[] = await userService.getAll();
+
+    return (
+        <div className={style['page-container']}>
+            <MainHeader title="Usuarios" buttonLabel="Nuevo Usuario" icon="pi pi-plus"/>
+            <Searcher />
+            <Table users={users} />
+            <BasicPaginator />
+        </div>
+    )
 }
