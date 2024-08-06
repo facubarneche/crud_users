@@ -1,7 +1,9 @@
 .wrapper-content {
   display: flex;
+  width: 100%;
 }
 
 .main-content {
   width: 100%;
+  height: 100%;
 }

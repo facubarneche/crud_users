@@ -5,26 +5,13 @@ import { IUser, User } from '../domains/user'
 class UserService {
   getAll = async () => (await axios.get(`${API_URL}?sector=3000&_limit=10&_page=1`)).data;
 
-  getById = async (id: number) => (await axios.get(`${API_URL}/${id}?sector=3000&_limit=10&_page=1`)).data;
+  getById = async (id: number) => (await axios.get(`${API_URL}/${id}`)).data;
 
-  // delete = async (id) => {
-  //   try {
-  //     const response$ = await axios.delete(`${API_URL}/punto-de-venta/${id}/eliminar`)
-  //     console.log('Elemento eliminado correctamente', response$.data)
-  //   } catch (err) {
-  //     HandleError(err)
-  //   }
-  // }
+  create = async (user: IUser) => await axios.post(API_URL, user);
 
-  // create = async (market) => {
-  //   try {
-  //     const MarketJSON = Market.toJson(market)
-  //     const response = await axios.post(`${API_URL}/punto-de-venta/nuevo`, MarketJSON)
-  //     console.log('Market created successfully', response.data)
-  //   } catch (err) {
-  //     HandleError(err)
-  //   }
-  // }
+  delete = async (id: number) => await axios.delete(`${API_URL}/${id}`);
+  
+
 
   // update = async (market) => {
   //   try {

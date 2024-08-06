@@ -2,3 +2,12 @@
     padding: 1rem;
     border-radius: 0.9rem;
 }
+
+.create-button.new {
+    background-color: #0763E7;
+}
+
+.create-button.delete {
+    background-color: #e21b1be3;
+    border: 0;
+}

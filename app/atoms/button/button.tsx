@@ -6,11 +6,18 @@ interface CreateButtonProps {
     label: string;
     icon: string;
     outlined: boolean;
+    action?: string;
     onClick: () => void;
 }
 
-export default function CreateButton({ label, icon, outlined, onClick }: CreateButtonProps) {
+export default function CreateButton({ label, icon, outlined, action, onClick }: CreateButtonProps) {
     const load = () => onClick();
 
-    return <Button className={styles['create-button']} label={label} icon={icon} onClick={load} outlined={outlined}/>
+    return <Button
+    className={`${styles['create-button']} ${action === 'new' ? styles['new'] : styles['delete']}`}
+        label={label}
+        icon={icon}
+        onClick={load}
+        outlined={outlined}
+    />
 }

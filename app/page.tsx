@@ -14,7 +14,7 @@ export default async function UserPage() {
         <div className={style['page-container']}>
             <MainHeader title="Usuarios" buttonLabel="Nuevo Usuario" icon="pi pi-plus"/>
             <Searcher />
-            <Table users={users} />
+            <Table initialUsers={users} />
             <BasicPaginator />
         </div>
     )

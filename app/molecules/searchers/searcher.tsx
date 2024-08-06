@@ -6,6 +6,7 @@ import InputSearch from "@/app/atoms/inputs/input-search/input-search";
 import DropdownInput from "@/app/atoms/inputs/dropdown/dropdown";
 
 export default function Searcher() {
+    // TODO: Obtener de utils o algo similar
     const state = ['ACTIVO', 'INACTIVO'];
     const sector = [3000, 3001, 3002];
 
