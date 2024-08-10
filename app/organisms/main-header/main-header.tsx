@@ -22,7 +22,8 @@ export default function MainHeader({ title, buttonLabel, icon }: MainHeaderProps
     <header className={styles['main-header']}>
       <h1 className={styles['main-header-title']}>{title}</h1>
       <CreateButton label={buttonLabel} icon={icon} outlined={false} style="text-white bg-blue-600" onClick={showModal} />
-      <ActionModal visible={modalVisible} user="" onClose={hideModal} />
+      {/* <ActionModal visible={modalVisible} user="" onClose={hideModal} /> */}
+      
     </header>
   )
 }

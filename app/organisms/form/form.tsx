@@ -6,8 +6,15 @@ import { InputIcon } from 'primereact/inputicon';
 import { InputText } from 'primereact/inputtext';
 import { Dropdown } from 'primereact/dropdown';
 import { userService } from '@/src/services/user.service';
+import { IUser } from '@/src/domains/user';
 
-export default function Form({ user, onClose }: any) {
+interface FormModalProps {
+  user: any;
+  createUser: (user: IUser) => void;
+  onClose: () => void;
+}
+
+export default function Form({ user, createUser, onClose }: FormModalProps) {
   const { register, handleSubmit, formState: { errors }, watch }: any = useForm({
     defaultValues: {
       id: user?.id,
@@ -24,7 +31,7 @@ export default function Form({ user, onClose }: any) {
     const { id, ...userData } = data;
 
     data.id ? userService.update(userData, id) : userService.create(userData);
-
+    createUser(data);
     onClose();
   };
 

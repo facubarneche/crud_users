@@ -1,20 +1,21 @@
 import { Dialog } from 'primereact/dialog';
 import Header from '../header/header';
 import Form from '../form/form';
+import { IUser } from '@/src/domains/user';
 
 interface ActionModalProps {
-    visible: boolean;
     user: any;
+    createUser: (user: IUser) => void;
     onClose: () => void;
 }
 
 
-export default function ActionModal({ visible, user, onClose }: ActionModalProps) {
+export default function ActionModal({ user, createUser, onClose }: ActionModalProps) {
 
     return (
         <Dialog
             header={<Header title="Usuario" />}
-            visible={visible}
+            visible={true}
             closeIcon={<i className="pi pi-minus" style={{ color: '#FFFFFF' }} />}
             onHide={onClose}
             style={{ width: '60vw', minHeight: '50vh' }}
@@ -22,7 +23,7 @@ export default function ActionModal({ visible, user, onClose }: ActionModalProps
             contentStyle={{ padding: '1em' }}
             closeOnEscape={false}
         >
-            <Form user={user} onClose={onClose}/>
+            <Form user={user} createUser={createUser} onClose={onClose} />
         </Dialog>
     );
 }
