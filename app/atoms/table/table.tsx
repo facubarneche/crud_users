@@ -20,15 +20,15 @@ export default function Table({ initialUsers }: any) {
     }
 
     const deleteAction = async (data: any) => {
-        setTableUser(tableUser.filter((user: any) => user.id !== data.id));
         await userService.delete(data.id);
+        setTableUser(tableUser.filter((user: any) => user.id !== data.id));
     }
     
 
     const hideModal = () => setModalVisible(false);
 
     //TODO: Cambiar de nombre al boton ActionButton
-    const deleteButton = (rowData: any) =>  <CreateButton label="Borrar" action='delete' icon="pi pi-trash" outlined={false} onClick={() => deleteAction(rowData)} />
+    const deleteButton = (rowData: any) =>  <CreateButton style='text-white bg-red-600 px-5' icon="pi pi-trash" outlined={false} onClick={() => deleteAction(rowData)} />
         
     return (
         <div>

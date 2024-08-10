@@ -9,20 +9,9 @@ class UserService {
 
   create = async (user: IUser) => await axios.post(API_URL, user);
 
+  update = async (user: IUser, id: string) => await axios.put(`${API_URL}/${id}`, user);
+
   delete = async (id: number) => await axios.delete(`${API_URL}/${id}`);
-  
-
-
-  // update = async (market) => {
-  //   try {
-  //     const MarketJSON = Market.toJson(market)
-  //     console.log('editado', market.id)
-  //     const response = await axios.put(`${API_URL}/punto-de-venta/editar`, MarketJSON)
-  //     console.log('Market updated successfully', response.data)
-  //   } catch (err) {
-  //     HandleError(err)
-  //   }
-  // }
 }
 
 
