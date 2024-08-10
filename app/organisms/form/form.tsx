@@ -53,7 +53,6 @@ export default function Form({ user, createUser, onClose }: FormModalProps) {
           className={styles['searcher-input']}
           placeholder='Ingrese el nombre del usuario'
           name='usuario'
-          autoComplete={false}
           {...register('usuario', {
             required: true,
             minLength: 3

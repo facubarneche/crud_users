@@ -33,7 +33,7 @@ export default function Table({ initialUsers }: any) {
     const hideModal = () => setModalVisible(false);
 
     //TODO: Cambiar de nombre al boton ActionButton
-    const deleteButton = (rowData: any) =>  <CreateButton style='text-white bg-red-600 px-5' icon="pi pi-trash" outlined={false} onClick={() => deleteAction(rowData)} />
+    const deleteButton = (rowData: any) =>  <CreateButton style='text-white bg-red-600 border-transparent px-5' icon="pi pi-trash" outlined={false} onClick={() => deleteAction(rowData)} />
         
     return (
         <div>
