@@ -25,7 +25,6 @@ export default function InputSearch({ label, userData, placeholder, name }: Inpu
           value={value || ''}
           onChange={(e) => setValue(e.target.value)}
           placeholder={placeholder}
-          name={name}
         />
       </IconField>
     </div>

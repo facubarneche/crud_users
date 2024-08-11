@@ -4,15 +4,21 @@ import Table from "@/app/atoms/table/table";
 import MainHeader from "@/app/molecules/main-header/main-header";
 import Searcher from "@/app/molecules/searchers/searcher";
 import { userService } from "@/src/services/user.service";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ActionModal from "../modal/action-modal";
 import { IUser } from "@/src/domains/user";
 import CreateButton from "@/app/atoms/button/button";
+import BasicPaginator from "@/app/atoms/paginator/paginator";
 
 export default function Main({ initialUsers }: any) {
     const [user, setUser] = useState<any>(null);
     const [modalVisible, setModalVisible] = useState(false);
-    const [tableUser, setTableUser] = useState<any>(initialUsers);
+    const [tableUser, setTableUser] = useState<IUser[]>(initialUsers);
+
+    // Sincronizamos tableUser con initialUsers para asegurar integridad de datos después del re-render.
+    useEffect(() => {
+        setTableUser(initialUsers);
+    }, [initialUsers]);
 
     const deleteAction = async (data: any) => {
         await userService.delete(data.id);
@@ -38,13 +44,18 @@ export default function Main({ initialUsers }: any) {
         setModalVisible(true);
     }
 
-    const hideModal = () => setModalVisible(false);
+    const hideModal = () => {
+        setUser(null);
+        setModalVisible(false);
+    }
 
     return (
         <div>
             <MainHeader title="Usuarios" buttonLabel="Nuevo Usuario" icon="pi pi-plus" showModal={showModal} />
             <Searcher />
             <Table printUsers={tableUser} showModal={showModal} deleteButton={deleteButton} />
+            <BasicPaginator />
+
             {
                 modalVisible && <ActionModal user={user} createUser={createUser} onClose={hideModal} />
             }

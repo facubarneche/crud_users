@@ -1,18 +1,24 @@
 import axios from 'axios'
-import { API_URL } from '../config'
+import { API_URL, DEFAULT_SECTOR_PARAMS } from '../config'
 import { IUser, User } from '../domains/user'
 
 class UserService {
-  getAll = async () => (await axios.get(`${API_URL}?sector=3000&_limit=10&_page=1`)).data;
+  getAll = async (queryParams: any) => {
+    // Se obtiene sector 3000 por defecto o el elegido 
+    // Solo para la funcionalidad del searcher. No se interactuó en ningún momento con otros sectores
+    const sector = queryParams?.sector ?? DEFAULT_SECTOR_PARAMS;
+    
+    const queryString = new URLSearchParams(queryParams);
+    return (await axios.get(`${API_URL}/?${sector}&${queryString.toString()}&_limit=10&_page=1`)).data;
+  }
 
-  getById = async (id: number) => (await axios.get(`${API_URL}/${id}`)).data;
+  getById = async (id: string) => (await axios.get(`${API_URL}/${id}/?${DEFAULT_SECTOR_PARAMS}`)).data;
 
-  create = async (user: IUser) => await axios.post(API_URL, user);
+  create = async (user: IUser) => await axios.post(`${API_URL}?${DEFAULT_SECTOR_PARAMS}`, user);
 
-  update = async (user: IUser, id: string) => await axios.put(`${API_URL}/${id}`, user);
+  update = async (user: IUser, id: string) => await axios.put(`${API_URL}/${id}/?${DEFAULT_SECTOR_PARAMS}`, user);
 
-  delete = async (id: number) => await axios.delete(`${API_URL}/${id}`);
+  delete = async (id: string) => await axios.delete(`${API_URL}/${id}/?${DEFAULT_SECTOR_PARAMS}`);
 }
-
 
 export const userService = new UserService();

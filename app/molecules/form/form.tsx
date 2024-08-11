@@ -79,7 +79,7 @@ export default function Form({ user, createUser, onClose }: FormModalProps) {
         <Dropdown
           className={styles['dropdown']}
           value={parseInt(watchedSector)} //Parseamos a entero 
-          options={[3000, 3001, 3002]}
+          options={[3000, 4000, 5000]}
           placeholder='Seleccionar el Sector'
           {...register('sector', {
             required: true,
