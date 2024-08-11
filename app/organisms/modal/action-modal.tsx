@@ -1,6 +1,6 @@
 import { Dialog } from 'primereact/dialog';
 import Header from '../header/header';
-import Form from '../form/form';
+import Form from '../../molecules/form/form';
 import { IUser } from '@/src/domains/user';
 
 interface ActionModalProps {

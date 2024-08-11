@@ -10,7 +10,7 @@ import { IUser } from '@/src/domains/user';
 
 interface FormModalProps {
   user: any;
-  createUser: (user: IUser) => void;
+  createUser: (user: any) => void;
   onClose: () => void;
 }
 
@@ -27,10 +27,10 @@ export default function Form({ user, createUser, onClose }: FormModalProps) {
   const watchedEstado = watch('estado');
   const watchedSector = watch('sector');
 
-  const onSubmit = (data: any) => {
-    const { id, ...userData } = data;
+  const onSubmit = async (formData: any) => {
+    const { id, ...userData } = formData;
 
-    data.id ? userService.update(userData, id) : userService.create(userData);
+    const { data } = id ? await userService.update(userData, id) : await userService.create(userData);
     createUser(data);
     onClose();
   };
