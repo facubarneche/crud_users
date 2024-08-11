@@ -1,7 +1,7 @@
 import axios from 'axios'
-import { API_URL, DEFAULT_SECTOR_PARAMS } from '../config'
-import { IUser, User } from '../domains/user'
+import { IUser } from '../domains/user'
 
+const {DEFAULT_SECTOR_PARAMS, API_URL} = process.env;
 class UserService {
   getAll = async (queryParams: any) => {
     // Se obtiene sector 3000 por defecto o el elegido 
