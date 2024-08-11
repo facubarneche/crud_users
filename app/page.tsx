@@ -9,6 +9,8 @@ export default async function UserPage({ searchParams }: {
       usuario?: string;
       estado?: string;
       sector?: number;
+      _page?: number;
+      _limit?: number;
     };
   }) {
 
