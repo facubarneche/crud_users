@@ -1,12 +1,10 @@
 import CreateButton from '@/app/atoms/button/button';
 import styles from './form.module.css';
 import { useForm } from 'react-hook-form';
-import { IconField } from 'primereact/iconfield';
-import { InputIcon } from 'primereact/inputicon';
 import { InputText } from 'primereact/inputtext';
 import { Dropdown } from 'primereact/dropdown';
 import { userService } from '@/src/services/user.service';
-import { IUser } from '@/src/domains/user';
+import { ESTADOS, SECTORES } from '@/src/utils/utils';
 
 interface FormModalProps {
   user: any;
@@ -64,9 +62,9 @@ export default function Form({ user, createUser, onClose }: FormModalProps) {
       <div className={styles['searcher-input-container']}>
         <label>Estado:</label>
         <Dropdown
-          className={styles['dropdown']}
+          className={styles['searcher-dropdown']}
           value={watchedEstado}
-          options={['ACTIVO', 'INACTIVO']}
+          options={SECTORES}
           placeholder='Seleccionar el Estado'
           {...register('estado', {
             required: true
@@ -77,9 +75,9 @@ export default function Form({ user, createUser, onClose }: FormModalProps) {
       <div className={styles['searcher-input-container']}>
         <label>Sector:</label>
         <Dropdown
-          className={styles['dropdown']}
+          className={styles['searcher-dropdown']}
           value={parseInt(watchedSector)} //Parseamos a entero 
-          options={[3000, 4000, 5000]}
+          options={ESTADOS}
           placeholder='Seleccionar el Sector'
           {...register('sector', {
             required: true,

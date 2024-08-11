@@ -1,5 +1,5 @@
 export interface IUser {
-    id: number;
+    id?: string;
     estado: string; //TODO: Agregar interface estado
     sector: string; //TODO: Agregar interface sector
     usuario: string; //TODO: Tipar con la entidad user

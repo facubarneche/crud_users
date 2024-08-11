@@ -25,8 +25,7 @@ export default function Main({ initialUsers }: any) {
         setTableUser(tableUser.filter((user: any) => user.id !== data.id));
     }
 
-    //TODO: Cambiar de nombre al boton ActionButton
-    const deleteButton = (rowData: any) => <CreateButton style='text-white bg-red-600 border-transparent px-5' icon="pi pi-trash" outlined={false} onClick={() => deleteAction(rowData)} />
+    const actionButton = (rowData: any) => <CreateButton style='text-white bg-red-600 border-transparent px-5' icon="pi pi-trash" outlined={false} onClick={() => deleteAction(rowData)} />
 
 
     const createUser = (user: IUser) => {
@@ -53,7 +52,7 @@ export default function Main({ initialUsers }: any) {
         <div>
             <MainHeader title="Usuarios" buttonLabel="Nuevo Usuario" icon="pi pi-plus" showModal={showModal} />
             <Searcher />
-            <Table printUsers={tableUser} showModal={showModal} deleteButton={deleteButton} />
+            <Table printUsers={tableUser} showModal={showModal} actionButton={actionButton} />
             <BasicPaginator />
 
             {

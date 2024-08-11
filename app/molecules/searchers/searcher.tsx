@@ -11,6 +11,7 @@ import { InputText } from "primereact/inputtext";
 import { IconField } from "primereact/iconfield";
 
 import styles from "./searcher.module.css";
+import { ESTADOS, SECTORES } from "@/src/utils/utils";
 
 interface ISearcher {
     usuario: string;
@@ -24,11 +25,6 @@ export default function Searcher() {
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const { replace } = useRouter();
-    
-    //TODO: Pasar a utils
-    // Opciones para los Dropdowns
-    const estados = ['ACTIVO', 'INACTIVO'];
-    const sectores = [3000, 4000, 5000];
 
     /**
      * Maneja cambios de los inputs 
@@ -76,8 +72,8 @@ export default function Searcher() {
             </div>
             <div className={styles['searcher-input-container']}>
                 <Dropdown
-                    className={styles['dropdown']}
-                    options={estados}
+                    className={styles['searcher-dropdown']}
+                    options={ESTADOS}
                     placeholder='Seleccionar el Estado'
                     id="estado"
                     value={searchData.estado}
@@ -88,8 +84,8 @@ export default function Searcher() {
             </div>
             <div className={styles['searcher-input-container']}>
                 <Dropdown
-                    className={styles['dropdown']}
-                    options={sectores}
+                    className={styles['searcher-dropdown']}
+                    options={SECTORES}
                     placeholder='Seleccionar el Sector'
                     id="sector"
                     value={searchData.sector}
