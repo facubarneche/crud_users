@@ -16,11 +16,11 @@ interface ISearchParams {
 
 export default async function UserPage({ searchParams }: ISearchParams) {
 
-    const users: IUser[] = await userService.getAll(searchParams);
+  const users: IUser[] = await userService.getAll(searchParams);
 
-    return (
-        <div className={style['page-container']}>
-            <Main initialUsers={users} />
-        </div>
-    )
+  return (
+    <div className={style['page-container']}>
+      <Main initialUsers={users} />
+    </div>
+  )
 }

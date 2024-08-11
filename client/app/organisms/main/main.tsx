@@ -1,14 +1,16 @@
 "use client";
 
+import { Suspense, useEffect, useState } from "react";
+
+import { userService } from "@/src/services/user.service";
+import { IUser } from "@/src/domains/user";
 import Table from "@/app/atoms/table/table";
 import MainHeader from "@/app/molecules/main-header/main-header";
 import Searcher from "@/app/molecules/searchers/searcher";
-import { userService } from "@/src/services/user.service";
-import { useEffect, useState } from "react";
-import ActionModal from "../modal/action-modal";
-import { IUser } from "@/src/domains/user";
 import CreateButton from "@/app/atoms/button/button";
 import BasicPaginator from "@/app/atoms/paginator/paginator";
+import ActionModal from "../modal/action-modal";
+import Spin from "@/app/atoms/spinner/spinner";
 
 export default function Main({ initialUsers }: any) {
     const [user, setUser] = useState<any>(null);
@@ -52,7 +54,9 @@ export default function Main({ initialUsers }: any) {
         <div>
             <MainHeader title="Usuarios" buttonLabel="Nuevo Usuario" icon="pi pi-plus" showModal={showModal} />
             <Searcher />
-            <Table printUsers={tableUser} showModal={showModal} actionButton={actionButton} />
+            <Suspense fallback={<Spin />}>
+                <Table printUsers={tableUser} showModal={showModal} actionButton={actionButton} />
+            </Suspense>
             <BasicPaginator />
 
             {
